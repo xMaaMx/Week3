@@ -1,0 +1,9 @@
+In questo esercizio effettueremo un attacco brute force.
+Con questo tipo di attacco andiamo a prendere i dati sensibili della macchina attaccata (password, username, dati login).
+Si effettueranno diverse combinazioni fino a che non avremmo risposta positiva.
+Anche qui si importano i moduli relativi al nostro tipo di attacco. In questo caso avremo un modulo http.client ed un modulo urllib.parse(analizza un url suddividendo i suoi componenti( schema di indirizzamento,posizione di rete,percorso etc..)
+con username_file = open e password_file = open, accettiamo questi file in input.
+con user_list o pwd_list = username/password_file.readlines() i files verranno copiati in memoria.
+Per poterli estrarre, andranno necessariamente trattati con il ciclo for, che per ogni utente dentro la lista utenti e per ogni pwd dentro la lista password, scrivera a scermo (print) lo statino con i dati ciclati.
+i dati ottentui verranno poi combinati e inseriti nelle variabili post_parameters e inviati tramite il metodo "POST", alla pagina di login.
+una volta ottenuta la risposta .getresponse() l'Header della pagina ci restituirà "benvenuto.php")

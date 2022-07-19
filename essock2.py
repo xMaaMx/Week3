@@ -29,12 +29,3 @@ while 1:
 		connection.close()
 		connection, address = s.accept()
 
-#SRV_ADDRESS, virgolette lasciate vuote poichè li va inserito l'ip a livello di input
-#SRV_PORT, numero della porta
-#s.bind, in quest'esempio mettiamo in comunicazione l'ADDR e la porta
-#s.listen , in ascolto un dispositivo (siamo noi ad indicarne il numero)
-#connection..accept(), recuperiamo le info
-#print, è la risposta testuale se la connessione è andata a buon fine
-#if/elif , se il client invia 1 otteniamo le info sul OS in esecuzione(usiamo le funzione platform)
-#se il client invia 2, il comando os.lisdir,restituisce  i file in una determinata directory
-#con 0 il server chiude la connessione

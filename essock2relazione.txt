@@ -1,0 +1,23 @@
+In questo esercizio proponiamo una simulazione di attacco ad un server.
+L'attaccante dovrà recuperare da due file.txt, username e password.
+Per far cio l'attaccante dovrà servirsi di una porta d'accesso (back door). Porta che sfrutterà le vulnerabilità nella macchina dell'attaccato.
+I seguenti passaggi ci permetteranno di connetterci da remoto al server attaccato
+Esecuzione dell'attacco:
+Per prima cosa, andranno importati i moduli socket, platform, os. Con questa importazione avremo modo di utilizzare le loro relative funzioni.
+Con SRV_ADDR e SRV_PORT andremo ad indicare l'indirizzo Ip e la porta della macchina vittima. Nel nostro esempio,non abbiamo il Server Address che verrà immesso dall'attaccante tramite input.
+Le seguenti righe di codice ci indicano: 
+s = socket.socket (socket.AF_INET, socket.SOCK_STREAM)
+(la linea di codice(funzione socket.socket) ha esattamente questa sintassi. con AF.INET specifichiamo che l'indirizzo è un Ipv4, con SOCK_STREAM è basato sul protocollo TCP)
+s.bind (( SRV_ADDR, SRV_PORT))
+(con s.bind associamo IP:PORTA al socket
+s.listen (1)
+(con s.listen ci mettiamo in ascolto attendendo le connessioni in entrata. Il numero tra parentesi specifica il numero di dispositivi in ascolto)
+connection, address = s.accept ()
+(con connection, address = s.accept (), sappiamo che se non ci sono errori in fase di connesione, il processo viene accettato e va avanti cosi con il suo script)
+Una volta accettato il processo, l'attaccante riceverà una risposta visiva (print) con il testo "client connected", address(cioè l'indirizzo ip attaccato)
+Entra cosi in gioco il ciclo, che viene istruito cosi come segue:
+while 1 ( il valore indica che la condizione è sempre avverata, cioè itera per un numero infinito di volte )
+try ( è la trasmissione di dati con la sua grandezza espressa in byte(1024)
+A questo punto vengono elencate le condizioni.
+Se l'attaccante invierà 1, avrà come risposta, le informazioni sulla macchina attaccata. Se il client invierà 2, la risposta sarà, l'ottenimento dei dati richiesti. All'utente verrà richiesto di inserire un path ( vedi di nuovo le " " assegnate al tosend) che verrà utilizzato lato client per farci restituire tutte le info sulle directory. Directory dove ritroveremo i file da utilizzare o compromettere.
+Qualora il client invia 0, il server chiude la connessione.
