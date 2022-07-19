@@ -1,8 +1,8 @@
 import http.client, urllib.parse
 #con http.client recuperiamo i metodi abilitati sul server chiamato.Il modulo urlib.parse ci fornisce le funzioni  per analizzare un url
 
-username_file = open ('nomi_utenti.txt'  )  #si accetta un file input che viene letto / in questo casodi username password
-password_file = open ('password.txt' )
+username_file = open ( "nomi_utenti.txt"  )  #si accetta un file input che viene letto / in questo casodi username password
+password_file = open ("password.txt" )
 
 user_list = username_file.readlines() #in questo caso il file verrà copiato
 pwd_list = password_file.readlines()
